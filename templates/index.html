@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Example</title>
+    <style>
+        table.outlined {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table.outlined tr {
+            border: 1px solid #d0d0d0;
+        }
+        th, td {
+            text-align: center;
+        }
+        th:nth-child(4), td:nth-child(4) {
+            text-align: left;
+	        padding: 3px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<table class="outlined">
+    <thead>
+        <tr>
+            <th>Indicator</th>
+            <th>Read</th>
+            <th>Bookmark</th>
+            <th>Headline</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entry in entries %}
+        <tr id="row_{{ loop.index }}">
+            <td><input type="radio" id="indicator_{{ loop.index }}" name="indicator" {% if loop.index == 1 %}checked{% endif %}></td>
+            <td><input type="checkbox" id="read_{{ entry.id }}"></td>
+            <td><input type="checkbox" id="star_{{ entry.id }}" {% if entry.starred %}checked{% endif %}></td>
+            <td data-url="{{ entry.url }}">{{ entry.title }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<br>
+<input type="submit">
+
+</body>
+</html>
