@@ -159,3 +159,40 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
+document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    const entriesRead = [];
+    const entriesStarred = [];
+    for (const checkbox of checkedCheckboxes) {
+        if (checkbox.id.startsWith('read_')) {
+            entriesRead.push(parseInt(checkbox.id.substring(5)));
+        } else if (checkbox.id.startsWith('star_')) {
+            entriesStarred.push(parseInt(checkbox.id.substring(5)));
+        }
+    }
+    const data = {
+        entries_read: entriesRead,
+        entries_star: entriesStarred
+    };
+
+    fetch(window.location.href, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            alert('Network response was not ok');
+        }
+    })
+    .then(_data => {
+        alert('Form submitted successfully!');
+    });
+
+    location.reload(true);
+});
