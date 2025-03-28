@@ -12,6 +12,9 @@
         table.outlined tr {
             border: 1px solid #d0d0d0;
         }
+        tr.checked {
+            background-color: #f2f2f2;
+        }
         th, td {
             text-align: center;
         }
@@ -20,7 +23,7 @@
 	        padding: 3px;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #eaeaea;
         }
     </style>
 </head>
@@ -41,7 +44,7 @@
     </thead>
     <tbody id="entries">
         {% for entry in entries %}
-        <tr id="row_{{ loop.index }}">
+        <tr id="row_{{ loop.index }}" {% if loop.index == 1%}class="checked"{% endif %}>
             <td><input type="radio" id="indicator_{{ loop.index }}" name="indicator" {% if loop.index == 1 %}checked{% endif %}></td>
             <td><input type="checkbox" id="read_{{ entry.id }}"></td>
             <td><input type="checkbox" id="star_{{ entry.id }}" {% if entry.starred %}checked{% endif %}></td>

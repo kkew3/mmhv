@@ -49,7 +49,7 @@ function checkAndGetFirstRadioRowId() {
  * Move focus down one row. If there is no focus, set focus to the first row.
  */
 function moveFocusDown() {
-    var row_id = getCheckedRadioRowId();
+    const row_id = getCheckedRadioRowId();
     // If no radio button is checked.
     if (row_id === null) {
         row_id = checkAndGetFirstRadioRowId();
@@ -58,16 +58,19 @@ function moveFocusDown() {
             return;
         }
         scrollToRow(row_id);
+        document.getElementById(`row_${row_id}`).classList.add('checked');
     } else {
         // Get the row id of the next row.
-        row_id = row_id + 1;
-        const radio = document.getElementById(`indicator_${row_id}`)
+        const next_row_id = row_id + 1;
+        const radio = document.getElementById(`indicator_${next_row_id}`)
         // If there is no next radio button.
         if (radio === null) {
             return;
         }
+        document.getElementById(`row_${row_id}`).classList.remove('checked');
         radio.checked = true;
-        scrollToRow(row_id);
+        document.getElementById(`row_${next_row_id}`).classList.add('checked');
+        scrollToRow(next_row_id);
     }
 }
 
@@ -75,7 +78,7 @@ function moveFocusDown() {
  * Move focus up one row. If there is no focus, set focus to the first row.
  */
 function moveFocusUp() {
-    var row_id = getCheckedRadioRowId();
+    const row_id = getCheckedRadioRowId();
     // If no radio button is checked.
     if (row_id === null) {
         row_id = checkAndGetFirstRadioRowId();
@@ -84,16 +87,19 @@ function moveFocusUp() {
             return;
         }
         scrollToRow(row_id);
+        document.getElementById(`row_${row_id}`).classList.add('checked');
     } else {
         // Get the row id of the previous row.
-        row_id = row_id - 1;
+        const next_row_id = row_id - 1;
         // If there is no previous radio button.
-        if (row_id === 0) {
+        if (next_row_id === 0) {
             return;
         }
-        const radio = document.getElementById(`indicator_${row_id}`)
+        const radio = document.getElementById(`indicator_${next_row_id}`)
+        document.getElementById(`row_${row_id}`).classList.remove('checked');
         radio.checked = true;
-        scrollToRow(row_id);
+        document.getElementById(`row_${next_row_id}`).classList.add('checked');
+        scrollToRow(next_row_id);
     }
 }
 
@@ -138,6 +144,26 @@ function openUrl() {
     const url = headline.getAttribute('data-url');
     window.open(url, '_blank');
 }
+
+function updateRowClassBasedOnRadioCheckedState() {
+    const radios = document.querySelectorAll('input[name="indicator"]');
+    for (const radio of radios) {
+        const row_id = radio.id.substring(10);
+        const tr = document.getElementById(`row_${row_id}`);
+        if (radio.checked) {
+            tr.classList.add('checked');
+        } else {
+            tr.classList.remove('checked');
+        }
+    }
+}
+
+document.querySelectorAll('input[name="indicator"]')
+.forEach(radio => {
+    radio.addEventListener('change', function(event) {
+        updateRowClassBasedOnRadioCheckedState();
+    });
+});
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'j') {
