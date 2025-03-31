@@ -25,6 +25,16 @@ class SyncEntriesStateQuery(BaseModel):
     entries_star: list[int]
 
 
+@app.get('/', response_class=HTMLResponse)
+def get_feeds(request: Request):
+    feeds = requests.get(
+        f'{BASEURL}/v1/feeds', headers={
+            'X-Auth-Token': API_KEY,
+        }).json()
+    return templates.TemplateResponse(
+        request=request, name='index.html', context={'entries': feeds})
+
+
 @app.get('/{feed_id}', response_class=HTMLResponse)
 def get_entries(request: Request, feed_id: int):
     entries = requests.get(

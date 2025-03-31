@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMHV: Minimalist Miniflux Headline Viewer</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<h2>Instruction</h2>
+<p><code>j</code>: move focus down; <code>k</code>: move focus up; <code>l</code>: open url.</p>
+<h2>Feeds</h2>
+<table class="outlined">
+    <thead>
+        <tr>
+            <th>Indicator</th>
+            <th>Feed id</th>
+            <th>Title</th>
+        </tr>
+    </thead>
+    <tbody id="entries">
+        {% for feed in entries %}
+        <tr id="row_{{ loop.index }}" {% if loop.index == 1%}class="checked"{% endif %}>
+            <td><input type="radio" id="indicator_{{ loop.index }}" name="indicator" {% if loop.index == 1 %}checked{% endif %}></td>
+            <td>{{ feed.id }}</td>
+            <td><a id="link_{{ loop.index }}" href="/{{ feed.id }}">{{ feed.title }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script src="/static/script.js"></script>
+<script src="/static/index.js"></script>
+
+</body>
+</html>
