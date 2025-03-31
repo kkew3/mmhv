@@ -8,9 +8,11 @@ import requests
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
+package_dir = os.path.dirname(__file__)
 app = FastAPI()
-templates = Jinja2Templates(directory='templates')
-app.mount('/static', StaticFiles(directory='static'), name='static')
+templates = Jinja2Templates(directory=f'{package_dir}/templates')
+app.mount(
+    '/static', StaticFiles(directory=f'{package_dir}/static'), name='static')
 
 load_dotenv()
 
