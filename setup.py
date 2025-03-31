@@ -12,11 +12,11 @@ def read_requirements():
 
 setup(
     name='minimalist-miniflux-headline-viewer',
-    py_modules=[
-        'app',
+    packages=[
+        'mmhv',
     ],
     package_data={
-        'app': [
+        'mmhv': [
             'static/*.js',
             'static/*.css',
             'templates/*.html',
@@ -26,7 +26,7 @@ setup(
     install_requires=read_requirements(),
     entry_points={
         'console_scripts': [
-            'mmhv = app:cli',
+            'mmhv = mmhv:cli',
         ],
     },
 )
