@@ -15,6 +15,13 @@ setup(
     py_modules=[
         'app',
     ],
+    package_data={
+        'app': [
+            'static/*.js',
+            'static/*.css',
+            'templates/*.html',
+        ],
+    },
     version='0.1.0',
     install_requires=read_requirements(),
     entry_points={
