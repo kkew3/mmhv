@@ -41,7 +41,7 @@ or [uv][uv]:
 uv tool install git+https://github.com/kkew3/mmhv.git
 ```
 
-Then run with
+Then run with, for example:
 
 ```bash
 env \
@@ -51,6 +51,8 @@ env \
     MMHV_PORT=8051 \
     mmhv
 ```
+
+Note: you need to customize these four environment variables to your need.
 
 [pipx]: https://pipx.pypa.io/stable/
 [uv]: https://docs.astral.sh/uv/
@@ -72,4 +74,5 @@ test -f .env && mmhv
 
 ## Usage
 
-Suppose that `mmhv` is served at `127.0.0.1:8051`, simply visit `127.0.0.1:8051/<feed_id>`.
+Suppose that `mmhv` is served at `127.0.0.1:8051`, simply visit `http://127.0.0.1:8051`.
+Then select the feed you're gonna view.
