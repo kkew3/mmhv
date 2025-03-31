@@ -11,7 +11,8 @@ function toggleRead(set_to_true) {
         return null;
     }
     const tr = document.getElementById(`row_${row_id}`);
-    const checkbox = tr.children[1].children[0];
+    const entry_id = tr.getAttribute('data-entry-id');
+    const checkbox = document.getElementById(`read_${entry_id}`);
     if (set_to_true) {
         checkbox.checked = true;
     } else {
@@ -26,7 +27,8 @@ function toggleRead(set_to_true) {
 function toggleStar() {
     const row_id = getCheckedRadioRowId();
     const tr = document.getElementById(`row_${row_id}`);
-    const checkbox = tr.children[2].children[0];
+    const entry_id = tr.getAttribute('data-entry-id');
+    const checkbox = document.getElementById(`star_${entry_id}`);
     checkbox.checked = !checkbox.checked;
 }
 
