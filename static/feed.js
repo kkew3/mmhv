@@ -106,5 +106,5 @@ document.getElementById('form').addEventListener('submit', function(event) {
         alert('Form submitted successfully!');
     });
 
-    location.reload();
+    window.location.assign(getUrlRoot(window.location.href));
 });
