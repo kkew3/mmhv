@@ -6,10 +6,13 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 import requests
 from pydantic import BaseModel
+from dotenv import load_dotenv
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount('/static', StaticFiles(directory='static'), name='static')
+
+load_dotenv()
 
 BASEURL = os.environ['MINIFLUX_BASEURL']
 API_KEY = os.environ['MINIFLUX_API_KEY']
