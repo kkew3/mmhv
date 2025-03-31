@@ -12,7 +12,7 @@ The frontend features fluent skimming over tons of RSS headlines, making it suit
 Features:
 
 - Vim-like Keyboard shortcuts <a href="#feature-footnote">†</a>.
-- RSS articles sorted in ascending publication time <a href="#feature-footnote">†</a>.
+- Unread RSS articles sorted in ascending publication time <a href="#feature-footnote">†</a>.
 
 Non-features:
 
@@ -26,6 +26,8 @@ Non-features:
 [fastapi]: https://fastapi.tiangolo.com/
 
 ## Installation
+
+To begin with, ensure there is a Miniflux server running.
 
 ### Choice 1: pipx or uvx
 
