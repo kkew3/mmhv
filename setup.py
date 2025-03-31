@@ -12,7 +12,9 @@ def read_requirements():
 
 setup(
     name='quick-read-miniflux-headline',
-    py_modules='app',
+    py_modules=[
+        'app',
+    ],
     version='0.1.0',
     install_requires=read_requirements(),
 )
