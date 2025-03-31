@@ -38,7 +38,7 @@ def get_entries(request: Request, feed_id: int):
             'X-Auth-Token': API_KEY,
         }).json()['entries']
     return templates.TemplateResponse(
-        request=request, name='index.html', context={'entries': entries})
+        request=request, name='feed.html', context={'entries': entries})
 
 
 @app.post('/{feed_id}')
