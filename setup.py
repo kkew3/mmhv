@@ -11,7 +11,7 @@ def read_requirements():
 
 
 setup(
-    name='quick-read-miniflux-headline',
+    name='minimalist-miniflux-headline-viewer',
     py_modules=[
         'app',
     ],
