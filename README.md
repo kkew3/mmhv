@@ -78,3 +78,7 @@ test -f .env && mmhv
 
 Suppose that `mmhv` is served at `127.0.0.1:8051`, simply visit `http://127.0.0.1:8051`.
 Then select the feed you're gonna view.
+
+## License
+
+MIT.
