@@ -25,6 +25,18 @@ Non-features:
 [miniflux]: https://miniflux.app/index.html
 [fastapi]: https://fastapi.tiangolo.com/
 
+## Related works
+
+There are already brilliant third-party Miniflux frontends like [Fluxjs][fluxjs], [ReactFlux][reactflux], [Nextflux][nextflux], [Reminiflux][reminiflux] as listed in Miniflux [docs][miniflux-third-party].
+However, this one is different, in that it does not intend to be a general-purpose frontend.
+MMHV's goal, instead, is to quickly filter out (marking as read) unwanted articles by skimming over the headlines.
+
+[fluxjs]: https://github.com/PascalNoisette/fluxjs
+[reactflux]: https://github.com/electh/ReactFlux
+[nextflux]: https://github.com/electh/nextflux
+[reminiflux]: https://github.com/reminiflux/reminiflux
+[miniflux-third-party]: https://miniflux.app/docs/apps.html
+
 ## Installation
 
 To begin with, ensure there is a Miniflux server running.
