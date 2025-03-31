@@ -13,6 +13,8 @@ app.mount('/static', StaticFiles(directory='static'), name='static')
 
 BASEURL = os.environ['MINIFLUX_BASEURL']
 API_KEY = os.environ['MINIFLUX_API_KEY']
+HOST = os.getenv('MMHV_HOST', '127.0.0.1')
+PORT = int(os.getenv('MMHV_PORT', '8051'))
 
 
 class SyncEntriesStateQuery(BaseModel):
@@ -58,3 +60,8 @@ def sync_entries_state(feed_id: int, query_body: SyncEntriesStateQuery):
     except requests.RequestException as err:
         return {'message': 'error', 'error': str(err)}
     return {'message': 'success'}
+
+
+def cli():
+    import uvicorn
+    uvicorn.run(app, host=HOST, port=PORT)
