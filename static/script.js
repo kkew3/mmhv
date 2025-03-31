@@ -165,6 +165,7 @@ document.querySelectorAll('input[name="indicator"]')
     });
 });
 
+// Keyboard shortcuts.
 document.addEventListener('keydown', function(event) {
     if (event.key === 'j') {
         moveFocusDown();
