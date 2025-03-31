@@ -23,7 +23,7 @@
     </thead>
     <tbody id="entries">
         {% for entry in entries %}
-        <tr id="row_{{ loop.index }}" data-entry-id=="{{ entry.id }}" {% if loop.index == 1%}class="checked"{% endif %}>
+        <tr id="row_{{ loop.index }}" data-entry-id="{{ entry.id }}" {% if loop.index == 1 %}class="checked"{% endif %}>
             <td><input type="radio" id="indicator_{{ loop.index }}" name="indicator" {% if loop.index == 1 %}checked{% endif %}></td>
             <td><input type="checkbox" id="read_{{ entry.id }}"></td>
             <td><input type="checkbox" id="star_{{ entry.id }}" {% if entry.starred %}checked{% endif %}></td>
