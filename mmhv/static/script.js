@@ -115,8 +115,3 @@ function updateRowClassBasedOnRadioCheckedState() {
         }
     }
 }
-
-function getUrlRoot(url) {
-    const urlObj = new URL(url);
-    return `${urlObj.protocol}//${urlObj.host}`;
-}

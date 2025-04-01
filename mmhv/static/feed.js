@@ -100,11 +100,8 @@ document.getElementById('form').addEventListener('submit', function(event) {
     .then(response => {
         if (!response.ok) {
             alert('Network response was not ok');
+        } else {
+            window.location.assign('/');
         }
-    })
-    .then(_data => {
-        alert('Form submitted successfully!');
     });
-
-    window.location.assign(getUrlRoot(window.location.href));
 });
