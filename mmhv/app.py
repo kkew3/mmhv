@@ -53,8 +53,8 @@ def get_entries(request: Request, feed_id: int):
         request=request, name='feed.html', context={'entries': entries})
 
 
-@app.post('/{feed_id}')
-def sync_entries_state(feed_id: int, query_body: SyncEntriesStateQuery):
+@app.post('/')
+def sync_entries_state(query_body: SyncEntriesStateQuery):
     try:
         for entry_id in query_body.entries_star:
             requests.put(

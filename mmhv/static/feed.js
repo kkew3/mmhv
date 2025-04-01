@@ -90,7 +90,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
         entries_star: entriesStarred
     };
 
-    fetch(window.location.href, {
+    fetch('/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
