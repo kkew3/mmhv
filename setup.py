@@ -22,7 +22,7 @@ setup(
             'templates/*.html',
         ],
     },
-    version='0.1.0',
+    version='0.1.1',
     install_requires=read_requirements(),
     entry_points={
         'console_scripts': [
