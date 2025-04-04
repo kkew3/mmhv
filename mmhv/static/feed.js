@@ -57,8 +57,6 @@ document.addEventListener('keydown', function(event) {
     } else if (event.key == 'k') {
         moveFocusUp();
     } else if (event.key == 'r') {
-        toggleRead(false);
-    } else if (event.key == 'R') {
         if (toggleRead(false) === true) {
             moveFocusDown();
         }
